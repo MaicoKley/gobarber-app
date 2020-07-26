@@ -35,9 +35,6 @@ export const AuthProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     async function loadStorageData(): Promise<void> {
-      // const token = await AsyncStorage.getItem('@GoBarber:token');
-      // const user = await AsyncStorage.getItem('@GoBarber:user');
-
       const [user, token] = await AsyncStorage.multiGet([
         '@GoBarber:user',
         '@GoBarber:token',
@@ -57,11 +54,8 @@ export const AuthProvider: React.FC = ({ children }) => {
       email,
       password,
     });
-    // console.log(response.data);
-    const { token, user } = response.data;
 
-    // await AsyncStorage.setItem('@GoBarber:token', token);
-    // await AsyncStorage.setItem('@GoBarber:user', JSON.stringify(user));
+    const { token, user } = response.data;
 
     await AsyncStorage.multiSet([
       ['@GoBarber:token', token],
