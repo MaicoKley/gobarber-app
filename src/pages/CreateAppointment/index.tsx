@@ -62,7 +62,7 @@ const CreateAppointment: React.FC = () => {
 
   useEffect(() => {
     api
-      .get(`provider/${selectedProvider}/day-availability`, {
+      .get(`providers/${selectedProvider}/day-availability`, {
         params: {
           year: selectedDate.getFullYear(),
           month: selectedDate.getMonth() + 1,
